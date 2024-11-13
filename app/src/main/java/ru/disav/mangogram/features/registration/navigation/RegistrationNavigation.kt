@@ -17,7 +17,9 @@ data class RegistrationRoute(val phone: String) {
 }
 
 fun NavController.navigateToRegistration(phone: String) {
-    this.navigate(RegistrationRoute(phone))
+    this.navigate(RegistrationRoute(phone)) {
+        popUpTo(0)
+    }
 }
 
 fun NavGraphBuilder.registrationScreen(
