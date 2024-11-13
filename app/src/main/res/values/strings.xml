@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">MangoGram</string>
+    <string name="login">Вход</string>
+
+    <string name="enter_phone">Введите телефон</string>
+    <string name="enter_code">Введите код</string>
+    <string name="ready">Далее</string>
+    <string name="registration">Регистрация</string>
+    <string name="register">Зарегистрироваться</string>
+    <string name="send_code_error_message">Произошла ошибка, попробуйте позже</string>
+    <string name="incorrect_code">Неправильный код</string>
+
+    <string name="your_phone">Ваш телефон</string>
+    <string name="enter_username">Введите никнейм</string>
+    <string name="enter_name">Введите имя</string>
+
+    <string name="chats">Чаты</string>
+    <string name="chat">Чат</string>
+
+    <string name="profile">Профиль</string>
+    <string name="name">Имя</string>
+    <string name="username">Никнейм</string>
+    <string name="there_is_error">Произошла ошибка</string>
+    <string name="try_again">Попробовать еще раз</string>
+    <string name="enter_message">Введите сообщение</string>
+
+</resources>

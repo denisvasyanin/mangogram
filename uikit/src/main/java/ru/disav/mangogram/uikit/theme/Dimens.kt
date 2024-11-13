@@ -1,0 +1,33 @@
+package ru.disav.mangogram.uikit.theme
+
+import androidx.compose.ui.unit.Dp
+
+val Dp1 = Dp(value = 1f)
+val Dp2 = Dp(value = 2f)
+val Dp4 = Dp(value = 4f)
+val Dp8 = Dp(value = 8f)
+val Dp16 = Dp(value = 16f)
+val Dp24 = Dp(value = 24f)
+val Dp32 = Dp(value = 32f)
+val Dp40 = Dp(value = 40f)
+val Dp48 = Dp(value = 48f)
+val Dp56 = Dp(value = 56f)
+val Dp64 = Dp(value = 64f)
+val Dp72 = Dp(value = 72f)
+val Dp80 = Dp(value = 80f)
+val Dp96 = Dp(value = 96f)
+val Dp108 = Dp(value = 108f)
+val Dp112 = Dp(value = 112f)
+val Dp120 = Dp(value = 120f)
+val Dp128 = Dp(value = 128f)
+val Dp136 = Dp(value = 136f)
+val Dp144 = Dp(value = 144f)
+val Dp152 = Dp(value = 152f)
+val Dp160 = Dp(value = 160f)
+val Dp184 = Dp(value = 184f)
+val Dp208 = Dp(value = 208f)
+val Dp256 = Dp(value = 256f)
+val Dp400 = Dp(value = 400f)
+
+val CornerRadius8 = Dp(value = 8f)
+val CornerRadius12 = Dp(value = 12f)
