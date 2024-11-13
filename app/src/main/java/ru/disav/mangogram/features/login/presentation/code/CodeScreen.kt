@@ -45,6 +45,8 @@ import ru.disav.mangogram.uikit.theme.Dp24
 import ru.disav.mangogram.uikit.theme.Dp48
 import ru.disav.mangogram.uikit.theme.MangoGramTheme
 
+private const val CODE_LENGTH = 6
+
 @Composable
 internal fun CodeScreen(
     onNavigateToRegistration: (String) -> Unit,
@@ -168,7 +170,7 @@ private fun CodeSceneContent(
     OutlinedTextField(
         value = code,
         onValueChange = {
-            if (it.isDigitsOnly()) code = it
+            if (it.isDigitsOnly() && it.length <= CODE_LENGTH) code = it
         },
         modifier = Modifier
             .fillMaxWidth(),
