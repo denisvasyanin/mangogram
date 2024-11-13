@@ -23,11 +23,13 @@ fun NavController.navigateToCode(phone: String) {
 fun NavGraphBuilder.codeScreen(
     onNavigateToRegistration: (String) -> Unit,
     onNavigateToProfile: () -> Unit,
+    onNavigateBack: () -> Unit,
 ) {
     composable<CodeRoute> {
         CodeScreen(
             onNavigateToRegistration = onNavigateToRegistration,
             onNavigateToProfile = onNavigateToProfile,
+            onNavigateBack = onNavigateBack
         )
     }
 }

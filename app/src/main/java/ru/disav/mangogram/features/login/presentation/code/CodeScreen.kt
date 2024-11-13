@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -32,27 +31,25 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.text.isDigitsOnly
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import ru.disav.mangogram.R
 import ru.disav.mangogram.features.login.codeTransformation
-import ru.disav.mangogram.features.login.mobileNumberTransformation
 import ru.disav.mangogram.uikit.component.KitAppBar
 import ru.disav.mangogram.uikit.component.KitButton
 import ru.disav.mangogram.uikit.component.KitLoadingAnimation
-import ru.disav.mangogram.uikit.component.KitTextField
 import ru.disav.mangogram.uikit.theme.CornerRadius12
 import ru.disav.mangogram.uikit.theme.Dp16
 import ru.disav.mangogram.uikit.theme.Dp24
 import ru.disav.mangogram.uikit.theme.Dp48
 import ru.disav.mangogram.uikit.theme.MangoGramTheme
 
-private const val CODE_LENGTH = 6
-
 @Composable
 internal fun CodeScreen(
     onNavigateToRegistration: (String) -> Unit,
     onNavigateToProfile: () -> Unit,
+    onNavigateBack: () -> Unit,
 ) {
     val viewModel: CodeScreenViewModel = hiltViewModel()
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -63,6 +60,10 @@ internal fun CodeScreen(
             .effectsFlow
             .collect {
                 when (it) {
+                    CodeEffects.NavigateBack -> {
+                        onNavigateBack()
+                    }
+
                     CodeEffects.NavigateToAuthorizedZone -> {
                         onNavigateToProfile()
                     }
@@ -105,14 +106,19 @@ internal fun CodeScreen(
 @Composable
 private fun CodeScene(
     uiState: CodeScreenUiState,
-    onEvent: (CodeEvent) -> Unit
+    onEvent: (CodeEvent) -> Unit,
 ) = Box(
     modifier = Modifier
         .fillMaxSize()
         .background(MangoGramTheme.colorScheme.surfaceBright)
 ) {
     Column {
-        KitAppBar(title = stringResource(R.string.login))
+        KitAppBar(
+            title = stringResource(R.string.login),
+            onBackButtonClick = {
+                onEvent(CodeEvent.GoBack)
+            }
+        )
 
         Column(
             modifier = Modifier
@@ -162,7 +168,7 @@ private fun CodeSceneContent(
     OutlinedTextField(
         value = code,
         onValueChange = {
-            if (it.length <= CODE_LENGTH) code = it
+            if (it.isDigitsOnly()) code = it
         },
         modifier = Modifier
             .fillMaxWidth(),

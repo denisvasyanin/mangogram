@@ -8,7 +8,6 @@ import timber.log.Timber.Forest.plant
 @HiltAndroidApp
 class MyApplication : Application() {
     override fun onCreate() {
-
         super.onCreate()
 
         if (BuildConfig.DEBUG) {

@@ -33,6 +33,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.text.isDigitsOnly
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import ru.disav.mangogram.R
@@ -156,7 +157,7 @@ private fun PhoneSceneContent(
     OutlinedTextField(
         value = phoneNumber,
         onValueChange = {
-            if (it.length <= PHONE_LENGTH) phoneNumber = it
+            if (it.length <= PHONE_LENGTH && it.isDigitsOnly()) phoneNumber = it
         },
         modifier = Modifier
             .fillMaxWidth(),

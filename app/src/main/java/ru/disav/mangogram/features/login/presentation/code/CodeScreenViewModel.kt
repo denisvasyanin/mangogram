@@ -65,6 +65,12 @@ class CodeScreenViewModel @Inject constructor(
                         }
                     }
             }
+
+            CodeEvent.GoBack -> {
+                viewModelScope.launch {
+                    effectsChannel.send(CodeEffects.NavigateBack)
+                }
+            }
         }
     }
 }

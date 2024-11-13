@@ -43,6 +43,9 @@ class MainActivity : ComponentActivity() {
                         },
                         onNavigateToProfile = {
                             navController.navigateToChatList()
+                        },
+                        onNavigateBack = {
+                            navController.popBackStack()
                         }
                     )
 

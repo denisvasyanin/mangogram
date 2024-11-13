@@ -12,6 +12,7 @@ fun NavGraphBuilder.loginGraph(
     onNavigateToCode: (String) -> Unit,
     onNavigateToRegistration: (String) -> Unit,
     onNavigateToProfile: () -> Unit,
+    onNavigateBack: () -> Unit,
 ) =
     navigation<LoginGraphRoute>(startDestination = PhoneRoute::class) {
         phoneScreen(
@@ -19,7 +20,8 @@ fun NavGraphBuilder.loginGraph(
         )
         codeScreen(
             onNavigateToRegistration = onNavigateToRegistration,
-            onNavigateToProfile = onNavigateToProfile
+            onNavigateToProfile = onNavigateToProfile,
+            onNavigateBack = onNavigateBack
         )
         registrationScreen(
             onNavigateToProfile = onNavigateToProfile
